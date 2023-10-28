@@ -1,0 +1,11 @@
+.error {
+  color: $errorColor;
+  text-align: end;
+  margin-top: 10px;
+
+  font-weight: 500;
+}
+
+.error-border {
+  border-bottom: 2px solid $errorColor !important;
+}
