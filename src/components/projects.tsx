@@ -9,14 +9,16 @@ interface IProjectsItems {
     id: number,
     imgSource: string;
     title: string;
-    skills: string[]
+    skills: string[],
+    link: string
 }
 
 const projectsItems: IProjectsItems[] = [
-    {id: 1, imgSource: postamatImage, title: 'Московский постамат', skills: ['HTML','CSS','Redux','React','RTK QUERY']},
-    {id: 2, imgSource: marshrutImage, title: 'Маршрут построен', skills: ['HTML','CSS','Redux','React','RTK QUERY']},
-    {id: 3, imgSource: dssImage, title: 'DSSYSTEM', skills: ['HTML','SCSS','React','Context API']},
-    {id: 4, imgSource: '', title: 'CapiShop', skills: ['HTML','SCSS','Next.js']},
+    {id: 1, imgSource: postamatImage, title: 'Московский постамат', link: '', skills: ['HTML','CSS','Redux','React','RTK QUERY']},
+    {id: 2, imgSource: marshrutImage, title: 'Маршрут построен', link: 'http://31.129.100.33/', skills: ['HTML','CSS','Redux','React','RTK QUERY']},
+    {id: 3, imgSource: dssImage, title: 'DSSYSTEM', link: 'https://dss-vert.vercel.app/home', skills: ['HTML','SCSS','React','Context API']},
+    {id: 4, imgSource: '', title: 'CapiShop', link: 'https://shoppy-bara.bigtows.org/', skills: ['HTML','SCSS','Next.js']},
+    {id: 5, imgSource: '', title: 'Sirin', link: 'https://my-sirin.vercel.app/index.html', skills:['HTML','CSS','JS']}
 ]
 
 const Projects: React.FC = () => {
