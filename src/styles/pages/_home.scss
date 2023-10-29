@@ -7,6 +7,8 @@
   max-width: 1920px;
   margin: 0 auto;
 
+  overflow: hidden;
+
   @include respond-to('large') {
     padding: 0 30px 0 30px;
   }
@@ -430,32 +432,32 @@
 
   margin-top: 140px;
 
-  //&:before {
-  //  position: absolute;
-  //  content: '';
-  //  height: 100%;
-  //  width: 100vw;
-  //  left: 0;
-  //  top: 0;
-  //  background-color: $footerColor;
-  //
-  //  transform: translateX(-50%);
-  //
-  //  z-index: -1;
-  //}
-  //&:after {
-  //  position: absolute;
-  //  content: '';
-  //  height: 100%;
-  //  width: 100vw;
-  //  right: 0;
-  //  top: 0;
-  //  background-color: $footerColor;
-  //
-  //  z-index: -1;
-  //
-  //  transform: translateX(50%);
-  //}
+  &:before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: $footerColor;
+
+    transform: translateX(-50%);
+
+    z-index: -1;
+  }
+  &:after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    right: 0;
+    top: 0;
+    background-color: $footerColor;
+
+    z-index: -1;
+
+    transform: translateX(50%);
+  }
   position: relative;
 }
 
