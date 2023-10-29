@@ -6,6 +6,18 @@
 
   max-width: 1920px;
   margin: 0 auto;
+
+  @include respond-to('large') {
+    padding: 0 30px 0 30px;
+  }
+
+  @include respond-to('medium') {
+    padding: 0 30px 0 30px;
+  }
+
+  @include respond-to('small') {
+    padding: 0 16px 0 16px;
+  }
 }
 
 //ABOUT
@@ -15,6 +27,13 @@
 
   margin-top: 127px;
 
+
+  @include respond-to('small') {
+    flex-direction: column-reverse;
+
+    margin-top: 270px;
+  }
+
   .about-left {
     display: flex;
     flex-direction: column;
@@ -23,8 +42,19 @@
     font-size: $textXl;
     color: white;
 
-    .about-title {
 
+
+
+    .about-title {
+      @include respond-to('large') {
+        font-size: $textXl;
+      }
+      @include respond-to('medium') {
+        font-size: 72px;
+      }
+      @include respond-to('small') {
+        font-size: 40px !important;
+      }
       .underline {
         border-bottom: 6px solid $hoverColor;
       }
@@ -46,6 +76,35 @@
     height: 720px;
     width: 445px;
     z-index: -1;
+
+    @include respond-to('large') {
+      right: 0;
+      height: 720px;
+    }
+
+    @include respond-to('medium') {
+      right: 0;
+      width: 332px;
+      height: 600px;
+    }
+
+    @include respond-to('small') {
+      //position: relative;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%);
+      //margin: 0 auto;
+      //display: flex;
+      //justify-self: center;
+      //align-self: center;
+      width: 174px;
+      height: 383px;
+      background: linear-gradient(to bottom, rgba(21, 21, 21, 0.3), rgba(128, 128, 128, 0.3));
+
+      &:before {
+        width: 174px;
+      }
+    }
 
     // Псевдо-элемент для фонового изображения
     &::before {
@@ -71,20 +130,47 @@
 .section-skills {
   margin-top: 72px;
 
+  @include respond-to('medium') {
+    margin-top: 52px;
+  }
+  @include respond-to('small') {
+    margin-top: 40px;
+  }
+
   .skills-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 58px 30px;
 
+    @include respond-to('medium') {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include respond-to('small') {
+      grid-template-columns: 1fr;
+
+      place-items: center;
+    }
+
     .skills-item {
-      place-self: start;
+      place-items: start;
+
+      @include respond-to('small') {
+        place-items: center;
+        align-items: center;
+
+        width: 100%;
+      }
 
       .skills-title {
         font-weight: 700;
         font-size: $textL;
 
         color: white;
+
+        @include respond-to('small') {
+          text-align: center;
+        }
       }
 
       .skills-content {
@@ -92,6 +178,12 @@
         font-size: $textRegular;
         font-weight: 500;
         line-height: 28px;
+
+        @include respond-to('small') {
+          display: block;
+          text-align: center;
+          width: 100%;
+        }
       }
     }
   }
@@ -115,6 +207,14 @@
       font-size: $textXl;
       font-weight: 700;
       color: white;
+
+      @include respond-to('medium') {
+        font-size: 72px;
+      }
+
+      @include respond-to('small') {
+        font-size: 40px;
+      }
     }
   }
 
@@ -126,6 +226,10 @@
       grid-template-columns: 1fr 1fr;
       grid-template-rows: auto;
       gap: 70px 30px;
+
+      @include respond-to('small') {
+        grid-template-columns: 1fr;
+      }
 
       .projects-bottom-item {
         display: flex;
@@ -155,6 +259,10 @@
           justify-content: center;
 
           transition: all 0.3s ease-in-out;
+
+          @include respond-to('small') {
+            font-size: $textL;
+          }
         }
 
         .projects-bottom-title {
@@ -172,6 +280,10 @@
           color: gray;
           font-size: $textRegular;
           font-weight: 500;
+
+          @include respond-to('small') {
+            font-size: 14px;
+          }
         }
 
         &:hover {
@@ -200,14 +312,39 @@
 
   padding: 80px 0 0 0;
 
+  @include respond-to('medium') {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  @include respond-to('small') {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
   .contacts-first {
     display: flex;
     flex-direction: column;
     gap: 36px;
 
+    @include respond-to('medium') {
+      align-items: center;
+    }
+    @include respond-to('small') {
+      align-items: center;
+    }
+
     .contacts-first-title {
       font-weight: 700;
       font-size: $textXl;
+
+      @include respond-to('medium') {
+        font-size: 72px;
+      }
+      @include respond-to('small') {
+        font-size: 40px;
+      }
 
       color: white;
     }
@@ -216,6 +353,10 @@
       font-weight: 500;
       line-height: 28px;
       font-size: $textRegular;
+
+      @include respond-to('small') {
+        font-size: 16px;
+      }
 
       color: gray;
     }
@@ -289,32 +430,32 @@
 
   margin-top: 140px;
 
-  &:before {
-    position: absolute;
-    content: '';
-    height: 100%;
-    width: 100vw;
-    left: 0;
-    top: 0;
-    background-color: $footerColor;
-
-    transform: translateX(-50%);
-
-    z-index: -1;
-  }
-  &:after {
-    position: absolute;
-    content: '';
-    height: 100%;
-    width: 100vw;
-    right: 0;
-    top: 0;
-    background-color: $footerColor;
-
-    z-index: -1;
-
-    transform: translateX(50%);
-  }
+  //&:before {
+  //  position: absolute;
+  //  content: '';
+  //  height: 100%;
+  //  width: 100vw;
+  //  left: 0;
+  //  top: 0;
+  //  background-color: $footerColor;
+  //
+  //  transform: translateX(-50%);
+  //
+  //  z-index: -1;
+  //}
+  //&:after {
+  //  position: absolute;
+  //  content: '';
+  //  height: 100%;
+  //  width: 100vw;
+  //  right: 0;
+  //  top: 0;
+  //  background-color: $footerColor;
+  //
+  //  z-index: -1;
+  //
+  //  transform: translateX(50%);
+  //}
   position: relative;
 }
 

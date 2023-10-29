@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Button from "./ui/button";
 
 const Contacts: React.FC = () => {
@@ -38,10 +38,19 @@ const Contacts: React.FC = () => {
         });
     };
 
-    const handleForm =  (e: React.FormEvent<HTMLFormElement>) => {
+    const handleForm =  async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (validate()) {
+            await fetch('https://formspree.io/f/xpzgbeod', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then((res) => console.log('Okay',res))
+                .catch((err) => console.log('something went wrong', err))
             setFormData({
                 userName: '',
                 email: '',

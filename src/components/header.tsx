@@ -3,7 +3,7 @@ import React from 'react';
 const Header: React.FC = () => {
     return(
         <header className={'header-section'}>
-            <span className={'header-left'}>{"<br />"}</span>
+            <span className={'header-left'}>{"<script />"}</span>
             <div className={'header-right'}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                     <a href={'https://github.com/Roseskk'} target={'_blank'} rel="noreferrer">
