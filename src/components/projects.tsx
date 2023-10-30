@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from "./ui/button";
 
 import postamatImage from '../assets/img/mospstmt.png';
@@ -42,6 +42,14 @@ const projectsItems: IProjectsItems[] = [
 
 const Projects: React.FC = () => {
     const [open, setOpen] = useState(false)
+    const [content, setContent] = useState<{title: string; text: string; photo: string; link: string} | null>(null)
+
+    useEffect(() => {
+        if (open) {
+            document.body.style.overflowY = 'hidden'
+        }
+        return () => {document.body.style.overflowY = 'scroll' }
+    }, [open]);
     const handleBtn = () => {
         const contacts = document.getElementById('contacts')
         if (contacts) contacts.scrollIntoView({behavior: 'smooth'})
@@ -53,51 +61,72 @@ const Projects: React.FC = () => {
 
     const handleBtnProject = ({title,text,photo,link}: IProjectProps) => {
         if (!!link) {
-            window.open(`${link}`,"_blank")
+            setContent({
+                title: title,
+                text: text,
+                photo: photo,
+                link: link
+            })
+            setOpen(true)
         } else {
             alert('Данный проект закрыт :(')
         }
 
     }
     return(
-        <section className={'section-projects'}>
-            <div className={'projects-top'}>
-                <h2 className={'projects-title'}>Projects</h2>
-                <Button handleClick={handleBtn} text={'CONTACT ME'} />
-            </div>
-            <div className={'projects-bottom'}>
-                <ul className={'projects-bottom-list'}>
-                    {
-                        projectsItems.map(project => {
-                            return(
-                                <li key={project.id} className={'projects-bottom-item'}>
-                                    {
-                                        !!project.imgSource
-                                        ? <img src={project.imgSource} alt={'project'} className={'project-bottom-img'} />
-                                        : <div className={'project-bottom-img-placeholder'}>{project.title}</div>
-                                    }
-                                    <span className={'projects-bottom-title'}>{project.title}</span>
-                                    <ul className={'projects-bottom-item-list'}>
+        <>
+            <section className={'section-projects'}>
+                <div className={'projects-top'}>
+                    <h2 className={'projects-title'}>Projects</h2>
+                    <Button handleClick={handleBtn} text={'CONTACT ME'} />
+                </div>
+                <div className={'projects-bottom'}>
+                    <ul className={'projects-bottom-list'}>
+                        {
+                            projectsItems.map(project => {
+                                return(
+                                    <li key={project.id} className={'projects-bottom-item'}>
                                         {
-                                            project.skills.map((skill, idx) => {
-                                            return(
-                                                <li key={idx}>
-                                                    <span>{skill}</span>
-                                                </li>
-                                            )
-                                        })}
-                                    </ul>
-                                    <div className={'projects-buttons'}>
-                                        <Button handleClick={() => handleBtnProject({title: project.title, text: project.text, link: project.link, photo: project.imgSource})} text={'VIEW PROJECT'}/>
-                                        <Button handleClick={() => handleBtnCode(project.github)} text={'VIEW CODE'}/>
-                                    </div>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
+                                            !!project.imgSource
+                                                ? <img src={project.imgSource} alt={'project'} className={'project-bottom-img'} />
+                                                : <div className={'project-bottom-img-placeholder'}>{project.title}</div>
+                                        }
+                                        <span className={'projects-bottom-title'}>{project.title}</span>
+                                        <ul className={'projects-bottom-item-list'}>
+                                            {
+                                                project.skills.map((skill, idx) => {
+                                                    return(
+                                                        <li key={idx}>
+                                                            <span>{skill}</span>
+                                                        </li>
+                                                    )
+                                                })}
+                                        </ul>
+                                        <div className={'projects-buttons'}>
+                                            <Button handleClick={() => handleBtnProject({title: project.title, text: project.text, link: project.link, photo: project.imgSource})} text={'VIEW PROJECT'}/>
+                                            <Button handleClick={() => handleBtnCode(project.github)} text={'VIEW CODE'}/>
+                                        </div>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+            </section>
+            <div className={`modal-container ${open ? 'modal-visible' : ''}`}>
+                {
+                    !!content?.photo
+                    ? <img className={'modal-left'} src={content?.photo} alt={'project'}/>
+                    : <div className={'modal-left-placeholder'}>{content?.title}</div>
+                }
+                <div className={'modal-right'}>
+                    <h2 className={'modal-title'}>{content?.title}</h2>
+                    <p className={'modal-content'}>{content?.text}</p>
+                    <Button handleClick={() => window.open(`${content?.link}`,'_blank')} margin={'0'} text={'VIEW PROJECT'} />
+                </div>
             </div>
-        </section>
+            <div onClick={() => setOpen(false)} className={`modal-background ${open ? 'modal-back-visible' : ''}`}></div>
+        </>
     )
 }
 
