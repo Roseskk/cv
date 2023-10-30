@@ -291,6 +291,16 @@ input, textarea {
   opacity: 0.7;
   transition: all 0.3s ease-in-out;
 }
+@media (max-width: 767px) {
+  .section-projects .projects-bottom .projects-bottom-list .projects-bottom-item .project-bottom-img {
+    height: 300px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-projects .projects-bottom .projects-bottom-list .projects-bottom-item .project-bottom-img {
+    height: 300px;
+  }
+}
 .section-projects .projects-bottom .projects-bottom-list .projects-bottom-item .project-bottom-img-placeholder {
   width: 100%;
   height: 545px;
@@ -304,11 +314,22 @@ input, textarea {
 }
 @media (max-width: 767px) {
   .section-projects .projects-bottom .projects-bottom-list .projects-bottom-item .project-bottom-img-placeholder {
+    height: 300px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .section-projects .projects-bottom .projects-bottom-list .projects-bottom-item .project-bottom-img-placeholder {
+    height: 300px;
+  }
+}
+@media (max-width: 767px) {
+  .section-projects .projects-bottom .projects-bottom-list .projects-bottom-item .project-bottom-img-placeholder {
     font-size: 48px;
   }
 }
 .section-projects .projects-bottom .projects-bottom-list .projects-bottom-item .projects-bottom-title {
   font-size: 24px;
+  font-family: "Montserrat" !important;
   font-weight: 700;
   color: white;
 }
