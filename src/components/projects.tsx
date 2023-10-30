@@ -103,7 +103,7 @@ const Projects: React.FC = () => {
                                                 })}
                                         </ul>
                                         <div className={'projects-buttons'}>
-                                            <Button handleClick={() => handleBtnProject({title: project.title, text: project.text, link: project.link, photo: project.imgSource})} text={'VIEW PROJECT'}/>
+                                            <Button handleClick={() => handleBtnProject({title: project.title, text: project.text, link: project.link, photo: project.imgSource})} text={'VIEW DESCRIPTION'}/>
                                             <Button handleClick={() => handleBtnCode(project.github)} text={'VIEW CODE'}/>
                                         </div>
                                     </li>
