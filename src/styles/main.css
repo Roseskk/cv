@@ -725,4 +725,17 @@ footer {
   visibility: visible;
 }
 
+.my-loader rect {
+  animation: loading-animation 1.5s infinite alternate;
+}
+
+@keyframes loading-animation {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /*# sourceMappingURL=main.css.map */

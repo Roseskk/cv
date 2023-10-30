@@ -4,6 +4,7 @@ import Button from "./ui/button";
 import postamatImage from '../assets/img/mospstmt.png';
 import marshrutImage from '../assets/img/marshruti.png';
 import dssImage from '../assets/img/dss.png';
+import MyLoader from "./ui/imagePreloader";
 
 interface IProjectsItems {
     id: number,
@@ -43,6 +44,7 @@ const projectsItems: IProjectsItems[] = [
 const Projects: React.FC = () => {
     const [open, setOpen] = useState(false)
     const [content, setContent] = useState<{title: string; text: string; photo: string; link: string} | null>(null)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         if (open) {
@@ -88,7 +90,18 @@ const Projects: React.FC = () => {
                                     <li key={project.id} className={'projects-bottom-item'}>
                                         {
                                             !!project.imgSource
-                                                ? <img src={project.imgSource} alt={'project'} className={'project-bottom-img'} />
+                                                ? (
+                                                    <>
+                                                        {isLoading && <MyLoader />}
+                                                        <img
+                                                            src={project.imgSource}
+                                                            alt={'project'}
+                                                            onLoad={() => setIsLoading(false)}
+                                                            style={{ display: isLoading ? 'none' : 'block' }}
+                                                            className={'project-bottom-img'}
+                                                        />
+                                                    </>
+                                                )
                                                 : <div className={'project-bottom-img-placeholder'}>{project.title}</div>
                                         }
                                         <span className={'projects-bottom-title'}>{project.title}</span>
