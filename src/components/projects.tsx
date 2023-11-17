@@ -3,6 +3,7 @@ import Button from "./ui/button";
 
 import postamatImage from '../assets/img/mospstmt.png';
 import marshrutImage from '../assets/img/marshruti.png';
+import audiophile from '../assets/img/audiophile.jpg';
 import dssImage from '../assets/img/dss.png';
 import MyLoader from "./ui/imagePreloader";
 
@@ -24,7 +25,7 @@ interface IProjectProps {
 }
 
 const projectsItems: IProjectsItems[] = [
-    {id: 1, imgSource: '',
+    {id: 1, imgSource: audiophile,
         text: 'Audiophile',
         title: 'Audiophile', github: 'https://github.com/Roseskk/audio-shop',link: 'https://audio-shop-zeta.vercel.app', skills:['Next.js','SCSS','TypeScript','Redux','WordPress']},
     {id: 2, imgSource: marshrutImage,
