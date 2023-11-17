@@ -24,9 +24,9 @@ interface IProjectProps {
 }
 
 const projectsItems: IProjectsItems[] = [
-    {id: 1, imgSource: postamatImage,
-        text: 'Основной задачей проекта является отслеживание и направление негативных комментариев связанных с работой цепи сервиса внешним службам решения инцидентов. Система осуществляет автоматический сбор негативных отзывов, включая их в систему инцидентов. Задача пользователя - проверить и направить обращение к соответствующим службам для быстрого решения проблем. За обработку и определение категорий проблемы отзывов в нашей системе отвечает нейронная сеть.',
-        title: 'Московский постамат', github: 'https://github.com/Roseskk/frontend', link: '', skills: ['HTML','CSS','Redux','React','RTK QUERY']},
+    {id: 1, imgSource: '',
+        text: 'Audiophile',
+        title: 'Audiophile', github: 'https://github.com/Roseskk/audio-shop',link: 'https://audio-shop-zeta.vercel.app', skills:['Next.js','SCSS','TypeScript','Redux','WordPress']},
     {id: 2, imgSource: marshrutImage,
         text: 'Проект Маршрут построен посвящен туризму и краеведению, прежде всего для образовательных организаций. Он предлагает различные мероприятия и проекты, например, "Маршрут построен", который ориентирован на студентов и педагогов. Сайт также устраивает встречи с известными путешественниками и предлагает различные маршруты для пеших прогулок и экскурсий. Основная аудитория — учащиеся с 7 по 11 класс, студенты колледжей и педагогические работники.',
         title: 'Маршрут построен', github: 'https://github.com/Roseskk/travel_school',link: 'http://31.129.100.33/', skills: ['HTML','CSS','Redux','React','RTK QUERY']},
@@ -38,9 +38,13 @@ const projectsItems: IProjectsItems[] = [
         title: 'Capishop', github: 'https://github.com/Shoppy-Bara/frontend',link: 'https://shoppy-bara.bigtows.org/', skills: ['HTML','SCSS','Next.js']},
     {id: 5, imgSource: '',
         text: 'Образцовый хореографический ансамбль "Сирин" — это лауреат множества Международных и Всероссийских фестивалей с активной концертной и гастрольной деятельностью. Здесь обучают основам танцевальных знаний, пластике, выразительности и другим навыкам. Выпускники ансамбля успешно продолжают свою карьеру в хореографии, многие даже открывают свои студии.',
-        title: 'Sirin', github: 'https://github.com/Roseskk/mySirin',link: 'https://my-sirin.vercel.app/index.html', skills:['HTML','CSS','JS']}
+        title: 'Sirin', github: 'https://github.com/Roseskk/mySirin',link: 'https://my-sirin.vercel.app/index.html', skills:['HTML','CSS','JS']},
+    {id: 6, imgSource: postamatImage,
+        text: 'Основной задачей проекта является отслеживание и направление негативных комментариев связанных с работой цепи сервиса внешним службам решения инцидентов. Система осуществляет автоматический сбор негативных отзывов, включая их в систему инцидентов. Задача пользователя - проверить и направить обращение к соответствующим службам для быстрого решения проблем. За обработку и определение категорий проблемы отзывов в нашей системе отвечает нейронная сеть.',
+        title: 'Московский постамат', github: 'https://github.com/Roseskk/frontend', link: '', skills: ['HTML','CSS','Redux','React','RTK QUERY']},
 ]
 
+// https://audio-shop-zeta.vercel.app/
 const Projects: React.FC = () => {
     const [open, setOpen] = useState(false)
     const [content, setContent] = useState<{title: string; text: string; photo: string; link: string} | null>(null)
